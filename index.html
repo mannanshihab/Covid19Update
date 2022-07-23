@@ -4,27 +4,33 @@
 	<meta charset="utf-8">
  	<meta name="viewport" content="width=device-width", initial-scale="1.0">
  	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<title>Covid Update| API</title>
+	<title> Covid 19 Update Info</title>
 </head>
 <body>
   <div class="container">
     <div class="row">
-        <div class="col-md-4 d-flex justify-content-center">
+        <div class="col-md-4 d-flex justify-content-center h-50">
             <table class="table table-success table-striped">
+                <th>
+                    <td class="blod">Bangladesh</td>
+                  </th> 
+                <tbody id="Bangladesh"></tbody>
+            </table>
+        </div>
+        <div class="col-md-4 d-flex justify-content-center h-50">
+            <table class="table table-success table-striped table-danger">
                 <th>
                   <td class="blod">Worldwide</td>
                 </th>
                 <tbody id="global-wise"></tbody>
             </table>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4 d-flex justify-content-center">
-            <table class="table table-success table-striped">
+        <div class="col-md-4 d-flex justify-content-center h-50">
+            <table class="table table-success table-striped table-dark">
                 <th>
-                  <td>Bangladesh</td>
-                </th>
-                <tbody id="Bangladesh"></tbody>
+                    <td class="blod">India</td>
+                  </th> 
+                <tbody id="India"></tbody>
             </table>
         </div>
     </div>
@@ -39,6 +45,8 @@ $.ajax({
       console.log(data);
       console.log(data.Global);
       console.log(data.Countries[14]);
+      console.log(data.Countries[77]);
+
       console.log(data.Countries[14].TotalConfirmed);
 
       $.each(data.Global, function(key, value){
@@ -46,7 +54,11 @@ $.ajax({
       });
 
       $.each(data.Countries[14], function(key, value){
-         $("#Bangladesh").append("<tr><td>"+ key +"</td><td>"+ value +"</td></tr>")
+         $("#Bangladesh").append("<tr><td>"+ key+"</td><td>"+ value+"</td></tr>")
+      });
+
+      $.each(data.Countries[77], function(key, value){
+         $("#India").append("<tr><td>"+ key+"</td><td>"+ value+"</td></tr>")
       });
 
       
